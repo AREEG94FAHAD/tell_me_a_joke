@@ -2,7 +2,7 @@
 use this bot to change your unhappiness by joke.
 this bot base on [API](https://official-joke-api.appspot.com/random_joke)
 
-<p align="center">
+<p>
  <img src="https://user-images.githubusercontent.com/30151596/117568677-591eb880-b0ca-11eb-8a3d-1072ea5e01ce.jpg" width="300" height="600" >
 </p>
 
