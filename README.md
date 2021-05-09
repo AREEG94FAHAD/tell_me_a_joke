@@ -1,4 +1,4 @@
-# A bot telegram for joke 😂
+# A bot telegram for jokes 😂
 use this bot to change your unhappiness by joke.
 this bot base on [API](https://official-joke-api.appspot.com/random_joke)
 
