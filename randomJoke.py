@@ -4,7 +4,7 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import requests
 import time
 
-API_TOKEN = '1687083230:AAGnpUdbQo7NY0kvHQb0WJmRMwBA9MQ01tg'
+API_TOKEN = '.............................'
 
 bot = telebot.TeleBot(API_TOKEN)
 def gen_markup():
