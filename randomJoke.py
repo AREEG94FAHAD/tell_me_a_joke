@@ -3,10 +3,11 @@ from telebot import types
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import requests
 import time
+import os
 
-API_TOKEN = '.............................'
+APITOKENJOKE = os.environ.get('APITOKENJOKE')
 
-bot = telebot.TeleBot(API_TOKEN)
+bot = telebot.TeleBot(APITOKENJOKE)
 def gen_markup():
     markup = InlineKeyboardMarkup()
     markup.row_width = 2
@@ -36,17 +37,21 @@ def send_welcome(message):
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
 
-    if call.data == "cb_yes":
-        bot.send_message(call.from_user.id,'Type: '+random_joke()[0] +'\n'+ random_joke()[1] +'\n '+  random_joke()[2])
-    elif call.data == "cb_no":
-        bot.send_message(call.from_user.id, "Thank you, to use it again send anything")
-        
+    try:
+        if call.data == "cb_yes":
+            bot.send_message(call.from_user.id,'Type: '+random_joke()[0] +'\n'+ random_joke()[1] +'\n '+  random_joke()[2])
+            time.sleep(5)
+            bot.send_message(call.from_user.id, "Another one  ?", reply_markup=gen_markup())
+        elif call.data == "cb_no":
+            bot.send_message(call.from_user.id, "Thank you, to use it again send anything")
+            
+    except:
+        bot.send_message(call.from_user.id, "Something went wrong ")
+
 
 @bot.message_handler(func=lambda message: True)
 def message_handler(message):
     bot.send_message(message.chat.id, "Do you want a joke ?", reply_markup=gen_markup())
-
-
 
 bot.polling()
 
